@@ -20,6 +20,16 @@ public class AreasController {
 			this.areaRepository = areaRepository;
 		}
 		
+		public List<Areas> findAllAreas(){
+			
+			return this.areaRepository.findAll();
+		}
+		
+		public Optional<Areas> findAreasById(int id){
+			
+			return this.areaRepository.findById(id);
+		}
+		
 		public List<Areas> findAreasByLinea(String linea){
 			
 			return this.areaRepository.findAreasBylinea(linea);
