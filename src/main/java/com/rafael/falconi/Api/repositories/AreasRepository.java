@@ -10,7 +10,7 @@ import com.rafael.falconi.Api.entities.Areas;
 
 public interface AreasRepository extends JpaRepository<Areas,Integer> {
 	
-	List<Areas> findAreasBylinea (String linea);
+	List<Areas> findAreasByLinea (String linea);
 
 
 }
