@@ -2,6 +2,9 @@ package com.rafael.falconi.Api.resources;
 
 import com.rafael.falconi.Api.controllers.AreasController;
 import com.rafael.falconi.Api.entities.Areas;
+import com.rafael.falconi.Api.resources.exceptions.AreasCreateException;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +21,7 @@ public class AreasResource {
     public static final String AREAS = "/areas";
     public static final String ID = "/{id}";
     public static final String DOMINIO = "/dominio";
+    public static final String LINEANAME = "/{}";
     public static final String LINEA = "/linea";
     
     private AreasController areasController;
@@ -47,4 +51,28 @@ public class AreasResource {
     	}
     }
     
+   /* @GetMapping(value = LINEA)
+    public List<Areas> getAreasByLinea(@PathVariable String Linea) {
+    	
+    	return this.areasController.findAreasByLinea(Linea);
+    }*/
+    
+    @DeleteMapping(value = ID)
+    public  ResponseEntity deleteAreas(@PathVariable int id){
+        if (this.areasController.deleteAreasById(id))
+            return new ResponseEntity("\"El area fue eliminado\"", HttpStatus.ACCEPTED);
+        return new ResponseEntity("\"El area no  existe\"", HttpStatus.NOT_FOUND);
+    }
+    
+    @PostMapping
+    public ResponseEntity createAreas(@RequestBody Areas product) throws AreasCreateException {
+        try {
+            this.areasController.createProduct(product);
+            return new ResponseEntity("\"El area fue creado\"", HttpStatus.ACCEPTED);
+        } catch (Exception e) {
+            throw new AreasCreateException("los datos enviados no son los correctos");
+        }
+
+    }
+
 }

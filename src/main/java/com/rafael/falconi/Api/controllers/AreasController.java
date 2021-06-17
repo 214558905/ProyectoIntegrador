@@ -1,6 +1,8 @@
 package com.rafael.falconi.Api.controllers;
 
 import com.rafael.falconi.Api.entities.Areas;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -30,9 +32,19 @@ public class AreasController {
 			return this.areaRepository.findById(id);
 		}
 		
-		public List<Areas> findAreasByLinea(String linea){
+		public List<Areas> findAreasByLinea(String Linea){
 			
-			return this.areaRepository.findAreasBylinea(linea);
+			return this.areaRepository.findAreasByLinea(Linea);
 		}
+		public void createProduct(Areas areas) {
+	        this.areaRepository.save(areas);
+	    }
+		
+		public boolean deleteAreasById(int id) {
+	        Optional<Areas> productOptional = this.findAreasById(id);
+	        if (!productOptional.isPresent()) return false;
+	        areaRepository.deleteById(id);
+	        return true;
+	    }
 		
 } 
