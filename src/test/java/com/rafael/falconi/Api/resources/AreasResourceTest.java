@@ -50,25 +50,28 @@ public class AreasResourceTest {
 		
 		String json=
                 restService.restBuilder(new RestBuilder<String>().clazz(String.class))
-                        .path(AreasResource.AREAS).path(AreasResource.ID).expand(1).get().build();
+                        .path(AreasResource.AREAS).path(AreasResource.ID).expand(4).get().build();
         System.out.println(json);
 	}
 	
 	
+	
+	
 	/*@Test
-	public void getAreasByLinea() {
+	 public void getAreasByDominio() {
 		
 		String json = 
 				restService.restBuilder(new RestBuilder<String>().clazz(String.class))
-                .path(AreasResource.AREAS).path(AreasResource.LINEA).expand("ejemplo").get().build();
+                .path(AreasResource.AREAS).path(AreasResource.DOMINIO).expand("aaa").get().build();
         System.out.println(json);
 	}*/
 	
+	 
 	 @Test
 	    public void deleteAreas() {
 	        String json = restService
 	                .restBuilder(new RestBuilder<String>().clazz(String.class))
-	                .path(AreasResource.AREAS).path(AreasResource.ID).expand(2).delete().build();
+	                .path(AreasResource.AREAS).path(AreasResource.ID).expand(7).delete().build();
 	        System.out.println(json);
 	    }
 	 

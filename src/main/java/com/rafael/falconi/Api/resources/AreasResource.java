@@ -20,9 +20,7 @@ public class AreasResource {
 
     public static final String AREAS = "/areas";
     public static final String ID = "/{id}";
-    public static final String DOMINIO = "/dominio";
-    public static final String LINEANAME = "/{}";
-    public static final String LINEA = "/linea";
+    public static final String DOMINIO = "/{dominio}";
     
     private AreasController areasController;
     
@@ -36,10 +34,23 @@ public class AreasResource {
     	
     	return this.areasController.findAllAreas();
     }
-    @GetMapping(value = ID)
-    public ResponseEntity getAreasById(@PathVariable int id) {
+    
+    @GetMapping(value= ID)
+    public ResponseEntity getProductById(@PathVariable int id) {
+        Optional<Areas> productOptional = this.areasController.findAreasById(id);
+        if (productOptional.isPresent()) {
+            return new ResponseEntity(productOptional.get(), HttpStatus.OK);
+        } else {
+            return new ResponseEntity("\"El producto no  existe\"", HttpStatus.NOT_FOUND);
+        }
+
+    }
+
+    
+    /*@GetMapping(value = DOMINIO)
+    public ResponseEntity getAreasByDominio(@PathVariable String dominio) {
     	
-    	Optional<Areas> areasOptional=this.areasController.findAreasById(id);
+    	Optional<Areas> areasOptional=this.areasController.findAreasByDominio(dominio);
     	
     	if(areasOptional.isPresent()) {
     		
@@ -47,14 +58,8 @@ public class AreasResource {
     		
     	}else {
     		
-    		return new ResponseEntity("\"El area no existe\"", HttpStatus.NOT_FOUND);
+    		return new ResponseEntity("\"El dominio no existe\"", HttpStatus.NOT_FOUND);
     	}
-    }
-    
-   /* @GetMapping(value = LINEA)
-    public List<Areas> getAreasByLinea(@PathVariable String Linea) {
-    	
-    	return this.areasController.findAreasByLinea(Linea);
     }*/
     
     @DeleteMapping(value = ID)
