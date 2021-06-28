@@ -11,8 +11,6 @@ import com.rafael.falconi.Api.entities.Areas;
 
 public interface AreasRepository extends JpaRepository<Areas,Integer> {
 	
-	Optional<Areas> findAreasByDominio (String dominio);
-	Optional<Areas> findAreasByLinea (String linea);
 
 
 }
