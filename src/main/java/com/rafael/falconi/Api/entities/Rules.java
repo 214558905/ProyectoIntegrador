@@ -16,7 +16,10 @@ public class Rules {
 	 @GeneratedValue(strategy = GenerationType.AUTO)
 	 @Column (unique = true )
 	    private int id;
-	    private String name, enlace;
+	    private String name;
+	    
+	    @Lob
+	    private String enlace;
 
 	    private Rules(int id, String enlace, String name ){
 	        this.id = id;

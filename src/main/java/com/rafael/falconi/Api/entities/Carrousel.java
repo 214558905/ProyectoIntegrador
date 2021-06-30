@@ -12,6 +12,7 @@ public class Carrousel {
     @Column (unique = true)
     private int id;
     
+    @Lob
     private String image;
     private Carrousel (int id, String image){
         this.id= id;
