@@ -9,15 +9,14 @@ public class News {
     private int id;
     
     private String name;
-    
-    
     @Lob
-    private String description;
+    private String description, imagen;
 
-    private News(int id, String name, String description) {
+    private News(int id, String name, String description, String imagen) {
         this.id = id;
         this.name = name;
         this.description = description;
+        this.imagen=imagen;
     }
 
     public News() {
@@ -31,7 +30,8 @@ public class News {
         News news = (News) obj;
         return Objects.equals(id, news.getId())
                 && Objects.equals(name, news.getName())
-                && Objects.equals(description, news.getDescription());
+                && Objects.equals(description, news.getDescription())
+                && Objects.equals(imagen, news.getImagen());
     }
     @Override
     public int hashCode() {
@@ -61,4 +61,13 @@ public class News {
         this.description = description;
     }
 
+	public String getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
+	}
+    
+    
 }

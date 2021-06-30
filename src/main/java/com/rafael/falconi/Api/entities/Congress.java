@@ -10,7 +10,8 @@ public class Congress {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column (unique = true )
     private int id;
-
+    
+    @Lob
     private String image;
 
     public Congress(int id, String image) {
