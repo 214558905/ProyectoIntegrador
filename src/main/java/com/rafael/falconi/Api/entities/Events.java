@@ -12,15 +12,13 @@ public class Events {
     private int id;
     
     private String name;
-    
-    
-    
     @Lob
-    private String description;
-    private Events (int id, String name, String description){
+    private String description, imagen;
+    private Events (int id, String name, String description, String imagen){
         this.id = id;
         this.name = name;
         this.description = description;
+        this.imagen=imagen;
     }
     public Events(){
 
@@ -32,11 +30,12 @@ public class Events {
         Events events = (Events) obj;
         return Objects.equals(id, events.getId())
                 && Objects.equals(name, events.getName())
-                && Objects.equals(description, events.getDescription());
+                && Objects.equals(description, events.getDescription())
+                && Objects.equals(imagen, events.getImagen());
     }
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, description);
+        return Objects.hash(id, name, description, imagen);
     }
 
     public int getId() {
@@ -62,4 +61,11 @@ public class Events {
     public void setDescription(String description) {
         this.description = description;
     }
+	public String getImagen() {
+		return imagen;
+	}
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
+	}
+    
 }
