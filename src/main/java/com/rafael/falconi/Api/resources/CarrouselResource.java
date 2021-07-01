@@ -11,16 +11,26 @@ import java.util.List;
 @RestController
 @RequestMapping(CarrouselResource.CARROUSEL)
 public class CarrouselResource {
+<<<<<<< HEAD
 	
 	public static final String CARROUSEL="/carrousel";
 	
 	private CarrouselController carrouselControler;
 	
 	
+=======
+
+	public static final String CARROUSEL="/carrousel";
+
+	private CarrouselController carrouselControler;
+
+
+>>>>>>> Cristhian
 	@Autowired
 	public CarrouselResource(CarrouselController carrouselControler) {
 		this.carrouselControler = carrouselControler;
 	}
+<<<<<<< HEAD
 	
 	@GetMapping
 	public List<Carrousel> getAllCarrousel(){
@@ -28,6 +38,15 @@ public class CarrouselResource {
 		return this.carrouselControler.findAllCarrousel();
 	}
 	
+=======
+
+	@GetMapping
+	public List<Carrousel> getAllCarrousel(){
+
+		return this.carrouselControler.findAllCarrousel();
+	}
+
+>>>>>>> Cristhian
 	
 
 }
