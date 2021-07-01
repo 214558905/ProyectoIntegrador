@@ -10,27 +10,24 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 
-
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class AreasResourceTest {
-
+public class CongressResourceTest {
 	@Rule
-	public ExpectedException thrown = ExpectedException.none();
+    public ExpectedException thrown = ExpectedException.none();
 
 	@Autowired
 	private RestService restService;
-
+	
 	@Test
-	public void getAllAreas() {
+	public void getAllCongress() {
 		
 		String json=
                 restService.restBuilder(new RestBuilder<String>().clazz(String.class))
-                        .path(AreasResource.AREAS).get().build();
+                        .path(CongressResource.CONGRESS).get().build();
         System.out.println(json);
+		
+		
 	}
-	
-	
-	
-	  
 }
+

@@ -1,6 +1,8 @@
 package com.rafael.falconi.Api.controllers;
 
 import com.rafael.falconi.Api.entities.Areas;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -25,14 +27,6 @@ public class AreasController {
 			return this.areaRepository.findAll();
 		}
 		
-		public Optional<Areas> findAreasById(int id){
-			
-			return this.areaRepository.findById(id);
-		}
-		
-		public List<Areas> findAreasByLinea(String linea){
-			
-			return this.areaRepository.findAreasBylinea(linea);
-		}
+	
 		
 } 
