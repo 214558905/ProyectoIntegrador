@@ -19,10 +19,6 @@ public class CongressController {
 	}
 	
 	public List<Congress> findAllCongress(){
-<<<<<<< HEAD
-=======
-
->>>>>>> Cristhian
 		
 		return this.congressRepository.findAll();
 		

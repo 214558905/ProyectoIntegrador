@@ -1,11 +1,8 @@
 package com.rafael.falconi.Api.resources;
 
 
-<<<<<<< HEAD
 
 
-=======
->>>>>>> Cristhian
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -21,8 +18,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class AreasResourceTest {
 
 	@Rule
-	public ExpectedException thrown = ExpectedException.none();
-
+    public ExpectedException thrown = ExpectedException.none();
+	
 	@Autowired
 	private RestService restService;
 
