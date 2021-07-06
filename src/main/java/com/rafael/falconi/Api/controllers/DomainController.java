@@ -1,14 +1,6 @@
 
-<<<<<<< HEAD
 package com.rafael.falconi.Api.controllers;
 
-=======
-<<<<<<< HEAD
-public class DomainController {
-
-}
-=======
->>>>>>> Alex
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,9 +27,4 @@ public class DomainController {
         return this.domainRepository.findAll();
 
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> Cristhian
->>>>>>> Alex
