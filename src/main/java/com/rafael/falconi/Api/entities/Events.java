@@ -5,20 +5,24 @@ import javax.persistence.*;
 import java.util.Objects;
 @Entity
 public class Events {
-	
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column (unique = true )
     private int id;
-    
+
     private String name;
-    @Lob
-    private String description, imagen;
-    private Events (int id, String name, String description, String imagen){
+    @Column(columnDefinition = "text")
+    private String description;
+
+    private String imagen;
+
+
+    public Events(int id, String name, String description, String imagen) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.imagen=imagen;
+        this.imagen = imagen;
     }
     public Events(){
 
@@ -61,11 +65,11 @@ public class Events {
     public void setDescription(String description) {
         this.description = description;
     }
-	public String getImagen() {
-		return imagen;
-	}
-	public void setImagen(String imagen) {
-		this.imagen = imagen;
-	}
-    
+    public String getImagen() {
+        return imagen;
+    }
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
 }
