@@ -2,25 +2,35 @@ package com.rafael.falconi.Api.entities;
 
 
 import javax.persistence.*;
+
+import org.hibernate.annotations.GenericGenerator;
+
 import java.util.Objects;
 @Entity
 public class Events {
+
+	@Id
+	@GeneratedValue(generator = "UUID")
+	@GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+	private String id;
 	
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column (unique = true )
-    private int id;
-    
     private String name;
-    @Lob
-    private String description, imagen;
-    private Events (int id, String name, String description, String imagen){
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.imagen=imagen;
-    }
-    public Events(){
+    @Column(columnDefinition = "text")
+    private String description;
+    
+    @Column(columnDefinition = "text")
+    private String imagen;
+
+
+    
+    
+	public Events(String id, String name, String description, String imagen) {
+		this.id = id;
+		this.name = name;
+		this.description = description;
+		this.imagen = imagen;
+	}
+	public Events(){
 
     }
     @Override
@@ -38,15 +48,14 @@ public class Events {
         return Objects.hash(id, name, description, imagen);
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
+    
+    public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getName() {
         return name;
     }
 
@@ -61,11 +70,11 @@ public class Events {
     public void setDescription(String description) {
         this.description = description;
     }
-	public String getImagen() {
-		return imagen;
-	}
-	public void setImagen(String imagen) {
-		this.imagen = imagen;
-	}
-    
+    public String getImagen() {
+        return imagen;
+    }
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
 }
