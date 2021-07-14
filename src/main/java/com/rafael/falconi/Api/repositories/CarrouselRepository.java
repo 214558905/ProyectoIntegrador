@@ -6,6 +6,6 @@ import com.rafael.falconi.Api.entities.Carrousel;
 
 
 
-public interface CarrouselRepository extends JpaRepository<Carrousel,Integer> {
+public interface CarrouselRepository extends JpaRepository<Carrousel,String> {
 	
 }

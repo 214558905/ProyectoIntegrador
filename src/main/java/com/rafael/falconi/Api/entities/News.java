@@ -1,25 +1,32 @@
 package com.rafael.falconi.Api.entities;
 import javax.persistence.*;
+
+import org.hibernate.annotations.GenericGenerator;
+
 import java.util.Objects;
 @Entity
 public class News {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column (unique = true )
-    private int id;
+	
+	@Id
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+	private String id;
     
     private String name;
-    @Lob
+	
+	@Column(columnDefinition = "text")
     private String description, imagen;
 
-    private News(int id, String name, String description, String imagen) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.imagen=imagen;
-    }
+    
 
-    public News() {
+    public News(String id, String name, String description, String imagen) {
+		this.id = id;
+		this.name = name;
+		this.description = description;
+		this.imagen = imagen;
+	}
+
+	public News() {
 
     }
 
@@ -37,15 +44,17 @@ public class News {
     public int hashCode() {
         return Objects.hash(id, name, description);
     }
-    public int getId() {
-        return id;
-    }
+    
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    public String getId() {
+		return id;
+	}
 
-    public String getName() {
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getName() {
         return name;
     }
 

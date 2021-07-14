@@ -6,7 +6,7 @@ import com.rafael.falconi.Api.entities.Events;
 
 
 
-public interface EventsRepository extends JpaRepository<Events,Integer> {
+public interface EventsRepository extends JpaRepository<Events,String> {
 
 
 }
