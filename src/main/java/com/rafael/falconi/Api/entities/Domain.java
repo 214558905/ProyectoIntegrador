@@ -1,25 +1,31 @@
 package com.rafael.falconi.Api.entities;
 
 import javax.persistence.*;
+
+import org.hibernate.annotations.GenericGenerator;
+
 import java.util.Objects;
 
 @Entity
 public class Domain {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column (unique = true )
-    private int id;
+	@Id
+	@GeneratedValue(generator = "UUID")
+	@GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    private String id;
 
     private String dominio, linea;
 
-    public Domain(int id, String dominio, String linea) {
-        this.id = id;
-        this.dominio = dominio;
-        this.linea = linea;
-    }
+   
 
-    public Domain(){
+    public Domain(String id, String dominio, String linea) {
+		super();
+		this.id = id;
+		this.dominio = dominio;
+		this.linea = linea;
+	}
+
+	public Domain(){
 
     }
 
@@ -38,15 +44,17 @@ public class Domain {
         return Objects.hash(id, dominio, linea);
     }
 
-    public int getId() {
-        return id;
-    }
+    
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    public String getId() {
+		return id;
+	}
 
-    public String getDomain() {
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getDomain() {
         return dominio;
     }
 

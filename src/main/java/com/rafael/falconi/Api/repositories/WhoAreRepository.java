@@ -4,5 +4,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.rafael.falconi.Api.entities.WhoAre;
 
-public interface WhoAreRepository extends JpaRepository<WhoAre,Integer>  {
+public interface WhoAreRepository extends JpaRepository<WhoAre,String>  {
 }

@@ -1,25 +1,32 @@
 package com.rafael.falconi.Api.entities;
 
 import javax.persistence.*;
+
+import org.hibernate.annotations.GenericGenerator;
+
 import java.util.Objects;
 
 @Entity
 public class Congress {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column (unique = true )
-    private int id;
+	@Id
+	@GeneratedValue(generator = "UUID")
+	@GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    private String id;
     
-    @Lob
+	@Column(columnDefinition = "text")
     private String image;
 
-    public Congress(int id, String image) {
-        this.id = id;
-        this.image = image;
-    }
+    
 
-    public Congress(){
+    
+	public Congress(String id, String image) {
+		super();
+		this.id = id;
+		this.image = image;
+	}
+
+	public Congress(){
 
     }
 
@@ -37,15 +44,17 @@ public class Congress {
         return Objects.hash(id, image);
     }
 
-    public int getId() {
-        return id;
-    }
+    
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    public String getId() {
+		return id;
+	}
 
-    public String getImage() {
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getImage() {
         return image;
     }
 

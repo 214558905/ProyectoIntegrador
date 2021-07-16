@@ -13,9 +13,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 public class GroupsResourceTest {
 
-    @Rule
-    public ExpectedException thrown = ExpectedException.none();
-
     @Autowired
     private RestService restService;
 
