@@ -6,6 +6,6 @@ import com.rafael.falconi.Api.entities.Groups;
 
 
 
-public interface GroupsRepository extends JpaRepository<Groups,Integer> {
+public interface GroupsRepository extends JpaRepository<Groups,String> {
 
 }

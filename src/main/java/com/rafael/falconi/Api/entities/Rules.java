@@ -9,24 +9,29 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 
+import org.hibernate.annotations.GenericGenerator;
+
 @Entity
 public class Rules {
 
-	 @Id
-	 @GeneratedValue(strategy = GenerationType.AUTO)
-	 @Column (unique = true )
-	    private int id;
+		@Id
+		@GeneratedValue(generator = "UUID")
+		@GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+	    private String id;
 	    private String name;
 	    
-	    @Lob
-	    private String enlace;
-
-	    private Rules(int id, String enlace, String name ){
-	        this.id = id;
-	        this.name = name;
-	        this.enlace = enlace;
-	    }
-	    public Rules(){
+	    @Column(columnDefinition = "text")
+	    private String enlace, imagen;
+	    
+	    
+	    
+	    public Rules(String id, String name, String enlace, String imagen) {
+			this.id = id;
+			this.name = name;
+			this.enlace = enlace;
+			this.imagen = imagen;
+		}
+		public Rules(){
 
 	    }
 	    @Override
@@ -36,23 +41,31 @@ public class Rules {
 	        Rules reglas = (Rules) obj;
 	        return Objects.equals(id, reglas.getId())
 	                && Objects.equals(enlace, reglas.getEnlace())
-	        		&& Objects.equals(name, reglas.getName());
+	        		&& Objects.equals(name, reglas.getName())
+	        		&& Objects.equals(imagen, reglas.getImagen());
 	    }
 
 	    @Override
 	    public int hashCode() {
-	        return Objects.hash(id, name, enlace);
+	        return Objects.hash(id, name, enlace, imagen);
 	    }
+	    
+	    
+	   
 
-	    public  int getId() {
-	        return id;
-	    }
-
-	    public void setId(int id) {
-	        this.id = id;
-	    }
-
-	    public String getName() {
+	    public String getId() {
+			return id;
+		}
+		public void setId(String id) {
+			this.id = id;
+		}
+		public String getImagen() {
+			return imagen;
+		}
+		public void setImagen(String imagen) {
+			this.imagen = imagen;
+		}
+		public String getName() {
 	        return name;
 	    }
 

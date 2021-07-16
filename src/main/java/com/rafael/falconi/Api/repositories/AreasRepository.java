@@ -9,7 +9,7 @@ import com.rafael.falconi.Api.entities.Areas;
 
 
 
-public interface AreasRepository extends JpaRepository<Areas,Integer> {
+public interface AreasRepository extends JpaRepository<Areas,String> {
 	
 
 

@@ -2,9 +2,7 @@ package com.rafael.falconi.Api.entities;
 
 
 import javax.persistence.*;
-
 import org.hibernate.annotations.GenericGenerator;
-
 import java.util.Objects;
 @Entity
 public class Events {

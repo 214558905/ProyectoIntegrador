@@ -13,6 +13,7 @@ import java.util.List;
 public class GroupsResource {
 
     public static final String GROUPS = "/groups";
+    public static final String ID = "/{id}";
 
     private GroupsController groupsController;
 

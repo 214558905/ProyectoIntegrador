@@ -9,24 +9,30 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 
+import org.hibernate.annotations.GenericGenerator;
+
 @Entity
 public class WhoAre {
 	
 	 @Id
-	 @GeneratedValue(strategy = GenerationType.AUTO)
-	 @Column (unique = true )
-	    private int id;
-	    private String quienesSomos, razon;
+	 @GeneratedValue(generator = "UUID")
+	 @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+	 private String id;
+	
+	 @Column(columnDefinition = "text")
+	  private String quienesSomos, razon;
 	  
 	    
-		public WhoAre(int id, String quienesSomos, String razon) {
-			super();
-			this.id = id;
-			this.quienesSomos = quienesSomos;
-			this.razon = razon;
-		}
+		
 		  
-	    public WhoAre(){
+	 public WhoAre(String id, String quienesSomos, String razon) {
+	
+		this.id = id;
+ 		this.quienesSomos = quienesSomos;
+    	this.razon = razon;
+	 }
+
+		public WhoAre(){
 
 	    }
 		
@@ -52,11 +58,13 @@ public class WhoAre {
 	        return Objects.hash(id, quienesSomos, razon);
 	    }
 
-		public int getId() {
+		
+
+		public String getId() {
 			return id;
 		}
 
-		public void setId(int id) {
+		public void setId(String id) {
 			this.id = id;
 		}
 

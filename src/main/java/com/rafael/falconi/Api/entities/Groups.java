@@ -2,31 +2,32 @@ package com.rafael.falconi.Api.entities;
 
 import java.util.Objects;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 public class Groups {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-    @Column (unique = true )
-	private int id;
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    private String id;
 	
 	private String linea, grupo, cordinador;
 
-	public Groups(int id, String linea, String grupo, String cordinador) {
-		super();
+	
+	
+	 public Groups(String id, String linea, String grupo, String cordinador) {
 		this.id = id;
 		this.linea = linea;
 		this.grupo = grupo;
 		this.cordinador = cordinador;
 	}
-	
-	 public boolean equals(Object obj) {
+
+	public boolean equals(Object obj) {
 	        if (this == obj) return true;
 	        if (obj == null || getClass() != obj.getClass()) return false;
 	        
@@ -45,13 +46,12 @@ public class Groups {
 	 }
 	
 	
-	
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
