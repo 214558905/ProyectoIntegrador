@@ -20,17 +20,24 @@ public class WhoAre {
 	 private String id;
 	
 	 @Column(columnDefinition = "text")
-	  private String quienesSomos, razon;
-	  
-	    
+	  private String descripcion, imagen;
+	 
+	 private String name;
+	 
 		
 		  
-	 public WhoAre(String id, String quienesSomos, String razon) {
+	 
+
 	
+	
+
+		public WhoAre(String id, String descripcion, String imagen, String name) {
+		super();
 		this.id = id;
- 		this.quienesSomos = quienesSomos;
-    	this.razon = razon;
-	 }
+		this.descripcion = descripcion;
+		this.imagen = imagen;
+		this.name = name;
+	}
 
 		public WhoAre(){
 
@@ -46,8 +53,9 @@ public class WhoAre {
 			WhoAre whoare = (WhoAre) obj;
 			
 			return Objects.equals(id, whoare.getId())
-				&&  Objects.equals(quienesSomos, whoare.getQuienesSomos())
-				&& 	Objects.equals(razon, whoare.getRazon());
+				&&  Objects.equals(descripcion, whoare.getDescripcion())
+				&&  Objects.equals(imagen, whoare.getImagen())
+				&&  Objects.equals(name, whoare.getName());
 
 
 			
@@ -55,10 +63,27 @@ public class WhoAre {
 		
 		@Override
 	    public int hashCode() {
-	        return Objects.hash(id, quienesSomos, razon);
+	        return Objects.hash(id, descripcion,imagen,name);
 	    }
-
 		
+		
+		
+
+		public String getDescripcion() {
+			return descripcion;
+		}
+
+		public void setDescripcion(String descripcion) {
+			this.descripcion = descripcion;
+		}
+
+		public String getName() {
+			return name;
+		}
+
+		public void setName(String name) {
+			this.name = name;
+		}
 
 		public String getId() {
 			return id;
@@ -68,21 +93,14 @@ public class WhoAre {
 			this.id = id;
 		}
 
-		public String getQuienesSomos() {
-			return quienesSomos;
+		public String getImagen() {
+			return imagen;
 		}
 
-		public void setQuienesSomos(String quienesSomos) {
-			this.quienesSomos = quienesSomos;
+		public void setImagen(String imagen) {
+			this.imagen = imagen;
 		}
-
-		public String getRazon() {
-			return razon;
-		}
-
-		public void setRazon(String razon) {
-			this.razon = razon;
-		}
+		
 		
 	    
 

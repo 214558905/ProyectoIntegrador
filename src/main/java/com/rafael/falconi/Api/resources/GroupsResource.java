@@ -12,8 +12,7 @@ import java.util.List;
 @RequestMapping (GroupsResource.GROUPS)
 public class GroupsResource {
 
-    public static final String GROUPS = "/groups";
-    public static final String ID = "/{id}";
+    public static final String GROUPS = "/grupos";
 
     private GroupsController groupsController;
 

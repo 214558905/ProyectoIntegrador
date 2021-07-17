@@ -16,7 +16,9 @@ public class Groups {
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     private String id;
 	
-	private String linea, grupo, cordinador;
+	private String linea;
+	private String grupo;
+	private String cordinador;
 
 	
 	
@@ -25,6 +27,9 @@ public class Groups {
 		this.linea = linea;
 		this.grupo = grupo;
 		this.cordinador = cordinador;
+	}
+	public Groups() {
+		
 	}
 
 	public boolean equals(Object obj) {
