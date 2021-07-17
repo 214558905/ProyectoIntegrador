@@ -11,7 +11,7 @@ import java.util.List;
 @RestController
 @RequestMapping(WhoareResource.WHOARE)
 public class WhoareResource {
-    public static final String WHOARE="/whoare";
+    public static final String WHOARE="/quienesSomos";
 
     private WhoareController WhoareController;
 
