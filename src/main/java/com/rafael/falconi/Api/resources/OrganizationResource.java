@@ -10,7 +10,7 @@ import java.util.List;
 @RestController
 @RequestMapping(OrganizationResource.ORGANIZATION)
 public class OrganizationResource {
-    public static final String ORGANIZATION ="/organization";
+    public static final String ORGANIZATION ="/organizacion";
 
     private OrganizationController organizationController;
 

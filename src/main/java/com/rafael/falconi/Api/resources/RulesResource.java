@@ -11,7 +11,7 @@ import java.util.List;
 @RequestMapping(RulesResource.RULES)
 public class RulesResource {
 
-    public static final String RULES="/rules";
+    public static final String RULES="/reglas";
 
     private RulesController rulesController;
 

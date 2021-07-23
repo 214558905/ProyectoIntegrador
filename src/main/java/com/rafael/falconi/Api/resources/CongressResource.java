@@ -11,7 +11,7 @@ import java.util.List;
 @RequestMapping(CongressResource.CONGRESS)
 public class CongressResource {
 	
-	public static final String CONGRESS ="/congress";
+	public static final String CONGRESS ="/congreso";
 
 	private CongressController congressControler;
 	
